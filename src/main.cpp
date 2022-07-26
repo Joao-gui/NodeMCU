@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @author your name (you@domain.com)
+ * @author Eng. João Pellacani (eng.joaopellacani@gmail.com)
  * @brief 
  * @version 0.1
  * @date 2022-07-25
