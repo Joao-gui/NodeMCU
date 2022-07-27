@@ -2,7 +2,11 @@
  * @file main.cpp
  * @author Eng. João Pellacani (eng.joaopellacani@gmail.com)
  * @brief 
+<<<<<<< HEAD
  * @version 1.0 (teste) 2
+=======
+ * @version 1.0 (teste)2
+>>>>>>> develop
  * @date 2022-07-27
  * 
  * @copyright Copyright (c) 2022
@@ -14,9 +18,10 @@
 #define PIN_LED 2
 
 /**
- * @brief stup inícial da aplicação 
+ * @brief 
  * 
  */
+
 void setup() {
   // put your setup code here, to run once:
   pinMode(PIN_LED, OUTPUT);
