@@ -14,7 +14,9 @@
 #define PIN_LED 2
 
 /**
- * @brief stup inícial da aplicação 
+ * @brief 
+ * 
+ */
  * 
  */
 void setup() {
