@@ -2,7 +2,7 @@
  * @file main.cpp
  * @author Eng. João Pellacani (eng.joaopellacani@gmail.com)
  * @brief 
- * @version 0.1
+ * @version 1.0
  * @date 2022-07-27
  * 
  * @copyright Copyright (c) 2022
