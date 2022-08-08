@@ -11,7 +11,10 @@
 
 #include <Arduino.h>
 
-#define PIN_LED 2
+#define PIN_LED D1
+
+// Pode ser usado tanto o #define quanto o cont byte para definit uma porta do ESP8266
+// const byte LED = D1;
 
 /**
  * @brief 
