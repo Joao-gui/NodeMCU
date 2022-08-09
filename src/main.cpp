@@ -11,7 +11,14 @@
 
 #include <Arduino.h>
 
+// Definição do pino do led
 #define PIN_LED D1
+// Definição do pino button
+#define Button D2
+// Varialvel para leitura do push button
+int estado = 0;
+// Variavel que armazena o valor do push button
+int guarda_estado = LOW;
 
 // Pode ser usado tanto o #define quanto o cont byte para definit uma porta do ESP8266
 // const byte LED = D1;
@@ -24,6 +31,10 @@
 void setup() {
   // put your setup code here, to run once:
   pinMode(PIN_LED, OUTPUT);
+  // Definindo PIN_LED sempre LOW, para sbre iniciar com ele desligado
+  digitalWrite(PIN_LED, LOW);
+  // Defini o button como pull up.
+  pinMode(Button, INPUT_PULLUP);
 }
 
 /**
@@ -32,8 +43,22 @@ void setup() {
  */
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(PIN_LED, HIGH);
-  delay(1000);
-  digitalWrite(PIN_LED, LOW);
-  delay(1000);
+  // Le o estado do push button se esta Low ou High
+  estado = digitalRead(Button);
+
+  if (estado == HIGH)
+  {
+    estado = !estado;
+    guarda_estado = !guarda_estado;
+    delay(500);
+    digitalWrite(PIN_LED, HIGH);
+  }
+  else
+  {
+    estado = !estado;
+    guarda_estado = !guarda_estado;
+    delay(500);
+    digitalWrite(PIN_LED, LOW);
+  }
+  
 }
