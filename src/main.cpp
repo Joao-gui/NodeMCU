@@ -1,64 +1,48 @@
 /**
  * @file main.cpp
  * @author Eng. João Pellacani (eng.joaopellacani@gmail.com)
- * @brief 
+ * @brief Conectando esp8266 no Wifi
  * @version 1.0
- * @date 2022-07-27
+ * @date 2022-08-28
  * 
  * @copyright Copyright (c) 2022
  * 
  */
 
 #include <Arduino.h>
+//Biblioteca do Wifi para o esp8266
+#include <ESP8266WiFi.h>
 
-// Definição do pino do led
-#define PIN_LED D1
-// Definição do pino button
-#define Button D2
-// Varialvel para leitura do push button
-int estado = 0;
-// Variavel que armazena o valor do push button
-int guarda_estado = LOW;
-
-// Pode ser usado tanto o #define quanto o cont byte para definit uma porta do ESP8266
-// const byte LED = D1;
-
-/**
- * @brief 
- * 
- */
+//Definindo o ssid da rede Wifi
+const char *ssid = "JOAO";
+const char *senha = "jo23va05";
 
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(PIN_LED, OUTPUT);
-  // Definindo PIN_LED sempre LOW, para sbre iniciar com ele desligado
-  digitalWrite(PIN_LED, LOW);
-  // Defini o button como pull up.
-  pinMode(Button, INPUT_PULLUP);
+  Serial.begin(115200);
+  delay(10);
+
+  Serial.print("Conectando a rede ");
+  Serial.println(ssid);
+
+  //Iniciando o wifi com os parametros de ssid e senha configurados
+  WiFi.begin(ssid, senha);
+
+  //Código de espera até o wifi conectar
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println(" ");
+  Serial.println("Wifi conectado.");
+  Serial.println("Endereço de Ip: ");
+  Serial.println(WiFi.localIP());
+  
 }
 
-/**
- * @brief código da aplicação
- * 
- */
-void loop() {
-  // put your main code here, to run repeatedly:
-  // Le o estado do push button se esta Low ou High
-  estado = digitalRead(Button);
 
-  if (estado == HIGH)
-  {
-    estado = !estado;
-    guarda_estado = !guarda_estado;
-    delay(500);
-    digitalWrite(PIN_LED, HIGH);
-  }
-  else
-  {
-    estado = !estado;
-    guarda_estado = !guarda_estado;
-    delay(500);
-    digitalWrite(PIN_LED, LOW);
-  }
-  
+void loop() {
+
+
 }
